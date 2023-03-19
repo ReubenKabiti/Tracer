@@ -29,8 +29,8 @@ class Sphere:
         n0 = (ray.get_point_at(t0) - self.center).get_normalized()
         n1 = (ray.get_point_at(t1) - self.center).get_normalized()
 
-        h1 = HintInfo(t0, self.color, n0)
-        h2 = HintInfo(t1, self.color, n1)
+        h1 = HitInfo(t0, self.color, n0)
+        h2 = HitInfo(t1, self.color, n1)
 
         return [h1, h2]
 

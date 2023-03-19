@@ -12,7 +12,9 @@ class Tracer:
         self.screen = pygame.display.set_mode((200, 200), pygame.RESIZABLE)
         pygame.display.set_caption("Tracer")
         self.objects = [
-                Sphere(Vector3(0, 0, -1), 0.4, pygame.color.Color(255, 0, 0))
+                Sphere(Vector3(0, 0, -1), 0.4, pygame.color.Color(255, 0, 0)),
+                # Sphere(Vector3(0, 0, -5), 2.5, pygame.color.Color(0, 255, 0)),
+                # Sphere(Vector3(0, 0, -6), 3.3, pygame.color.Color(0, 0, 255)),
         ]
 
     def run(self):
