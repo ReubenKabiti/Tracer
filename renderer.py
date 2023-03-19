@@ -4,6 +4,8 @@ import helper
 from gameobjects.vector3 import Vector3
 import math
 from ray import Ray
+from threading import Thread
+
 
 class Renderer:
 
@@ -15,7 +17,7 @@ class Renderer:
         self.aspect = 0
         self.black = pygame.color.Color(0, 0, 0)
         self.light_dir = Vector3(1, -1, -1)
-    
+
     @helper.profile
     def render(self, objects):
         size = pygame.display.get_surface().get_rect()
@@ -28,6 +30,9 @@ class Renderer:
 
         self.aspect = screen_width / screen_height
 
+        max_threads = 40
+        threads = []
+
         for y in range(size.height):
             for x in range(size.width):
                 u = x / size.width 
@@ -35,12 +40,11 @@ class Renderer:
 
                 v = (size.height - y) / size.height
                 v = 2 * v - 1
-
-                color = self.per_pixel(u, v, objects)
-                surf.set_at((x, y), color)
+                self.per_pixel(surf, x, y, u, v, objects)
+                   
         return surf
 
-    def per_pixel(self, u, v, objects):
+    def per_pixel(self, surf, x, y, u, v, objects):
         
         
         right = Vector3(1, 0, 0)
@@ -76,5 +80,6 @@ class Renderer:
         g = int(sphere_color.g * fac)
         b = int(sphere_color.b * fac)
 
-        return pygame.color.Color(r, g, b)
-
+        color = pygame.color.Color(r, g, b)
+    
+        surf.set_at((x, y), color)
