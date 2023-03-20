@@ -14,4 +14,6 @@ sudo python setup.py install
 ```
 
 ### run
+``` sh
 python tracer.py
+```
