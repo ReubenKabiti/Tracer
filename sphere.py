@@ -4,6 +4,7 @@ from pygame.color import Color
 from ray import Ray
 from hitinfo import HitInfo
 from typing import *
+import helper
 
 class Sphere:
 

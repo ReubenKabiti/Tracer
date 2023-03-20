@@ -30,11 +30,9 @@ class Renderer:
 
         self.aspect = screen_width / screen_height
 
-        max_threads = 40
-        threads = []
 
-        for y in range(size.height):
-            for x in range(size.width):
+        for x in range(size.width):
+            for y in range(size.height):
                 u = x / size.width 
                 u = 2 * u - 1
 

@@ -16,7 +16,7 @@ def profile(func):
             t = time.time()
             op = func(*args, **kwargs)
             t = time.time() - t
-            print(round(t, 3), "s", sep="")
+            print(f"function {func.__name__} took: ", t, "s", sep="")
             return op
         return out
 
