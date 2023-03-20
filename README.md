@@ -9,7 +9,7 @@ Install gameobjects
 ``` sh
 cd tracer
 tar -xf gameobjects-0.0.3.tar.gz
-cd gameobjects-0.0.3.tar.gz
+cd gameobjects-0.0.3
 sudo python setup.py install
 ```
 
