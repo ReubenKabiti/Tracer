@@ -4,7 +4,6 @@ import helper
 from gameobjects.vector3 import Vector3
 import math
 from ray import Ray
-from threading import Thread
 
 
 class Renderer:
